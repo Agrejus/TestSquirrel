@@ -87,7 +87,8 @@ namespace ReleaseTest
 
                     Thread.Sleep(5000);
 
-                    RestartApp();
+
+                    UpdateManager.RestartApp("C:\\Users\\JamesDeMuse\\source\\repos\\ReleaseTest\\ReleaseTest\\ReleaseTest\\ReleaseTest.exe");
                     return false;
                 }
                 else
@@ -95,67 +96,10 @@ namespace ReleaseTest
                     this.Dispatcher.Invoke(() => { lblContent.Content = "No Updates Found... App Starting"; });
                     this.Dispatcher.Invoke(() => { this.Visibility = Visibility.Hidden; });
 
-                    Thread.Sleep(5000);
-
-
-                    // Does this work?
-                    UpdateManager.RestartApp();
-
-                    // close splash screen
+                    Thread.Sleep(3000);
                     return true;
                 }
             }
-
-            //using (var mgr = new UpdateManager(updatePath, packageId))
-            //{
-            //    SquirrelAwareApp.HandleEvents(
-            //      onInitialInstall: v =>
-            //      {
-            //          mgr.CreateShortcutForThisExe();
-            //      },
-            //      onAppUpdate: v =>
-            //      {
-            //          mgr.CreateShortcutForThisExe();
-            //      },
-            //      onAppUninstall: v =>
-            //      {
-            //          mgr.RemoveShortcutForThisExe();
-            //      },
-            //      onFirstRun: () => ShowTheWelcomeWizard = true);
-
-            //    var updates = await mgr.CheckForUpdate();
-
-            //    if (updates.ReleasesToApply.Any())
-            //    {
-            //        this.Dispatcher.Invoke(() => { lblContent.Content = "Updates Found, Downloading..."; });
-            //        var lastVersion = updates.ReleasesToApply.OrderBy(x => x.Version).Last();
-
-            //        await mgr.DownloadReleases(new[] { lastVersion });
-
-            //        this.Dispatcher.Invoke(() => { lblContent.Content = "Applying Releases..."; });
-            //        var releasesApplied = await mgr.ApplyReleases(updates);
-
-            //        this.Dispatcher.Invoke(() => { lblContent.Content = "Updating, the app will automatically restart when finished..."; });
-            //        var releaseEntries = await mgr.UpdateApp();
-
-            //        Thread.Sleep(5000);
-
-            //        RestartApp();
-            //        return false;
-            //    }
-            //    else
-            //    {
-            //        this.Dispatcher.Invoke(() => { lblContent.Content = "No Updates Found... App Starting"; });
-            //        this.Dispatcher.Invoke(() => { this.Visibility = Visibility.Hidden; });
-
-            //        Thread.Sleep(5000);
-
-            //        RestartApp();
-
-            //        // close splash screen
-            //        return true;
-            //    }
-            //}
         }
 
         private void RestartApp()
