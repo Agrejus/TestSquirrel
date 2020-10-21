@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Home" Height="450" Width="800">
     <Grid>
-        <Label>Welcome Home!!</Label>
+        <Label>Welcome To Github!</Label>
     </Grid>
 </Window>
