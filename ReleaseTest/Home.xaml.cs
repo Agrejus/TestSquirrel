@@ -22,6 +22,7 @@ namespace ReleaseTest
         public Home()
         {
             InitializeComponent();
+            this.lblContent.Content = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
     }
 }
